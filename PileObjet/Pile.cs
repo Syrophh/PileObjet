@@ -23,16 +23,15 @@
             this.elements = new System.Collections.Generic.List<int>();
         }
 
-
         ///<summary>
         ///retourne un booléen indiquant si la pile est vide
-        ///Une pile est vide si maxElt = 0
+        ///Une pile est vide si nbMaxElt = 0
         /// </summary>
         /// <param name="pUnePile"></param>
         /// <returns></returns>
-        static bool PileVide(Pile pUnePile)
+        public bool PileVide()
         {
-            return pUnePile.elements.Count == 0;
+            return this.elements.Count == 0;
         }
 
         ///<summary>
@@ -41,9 +40,9 @@
         /// </summary>
         /// <param name="pUnePile"></param>
         /// <returns></returns>
-        static bool PilePleine(Pile pUnePile)
+        public bool PilePleine()
         {
-            return pUnePile.nbMaxElt == pUnePile.elements.Count;
+            return this.nbMaxElt == this.elements.Count;
         }
 
         ///<summary>
@@ -54,17 +53,30 @@
         /// <param name="pUnePile">pile sur laquelle il faut empiler</param>
         /// <param name="PObj">éléments à empiler</param>
 
-        static void Empiler(ref Pile pUnePile, Object PObj)
+        public void Empiler(int nb)
         {
-            if (!PilePleine(pUnePile))
+            if (!PilePleine())
             {
-                pUnePile.tabElem.Add(PObj);
+                this.elements.Add(nb);
             }
             else
             {
-                throw new Exception("Pile pleine, impossible d'empiler un élément");
+                throw new System.Exception("Pile pleine, impossible d'empiler un élément");
             }
+        }
 
+        public int Depiler()
+        {
+            if (!PileVide())
+            {
+                int result = (int)this.elements[this.elements.Count - 1];
+                this.elements.RemoveAt(this.elements.Count - 1);
+                return result;
+            }
+            else
+            {
+                throw new System.Exception("Impossible de dépiler, pile vide");
+            }
         }
     }
 }
