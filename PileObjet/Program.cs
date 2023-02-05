@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilitaires;
 
 namespace MesOutils
 {
@@ -14,7 +15,13 @@ namespace MesOutils
             //TestePileVidePleine(0);
             //TesteEmpiler(5);
             //TesteEmpiler(2);
-            TestEmpilerDepiler(5);
+            //TestEmpilerDepiler(5);
+            int nbSaisi = Utilitaire.SaisirNb();
+            Console.WriteLine("Nombre saisi : " + nbSaisi);
+            nbSaisi = Utilitaire.SaisirNb(10);
+            Console.WriteLine("Nombre saisi : " + nbSaisi);
+            nbSaisi = Utilitaire.SaisirNb(10, 30);
+            Console.WriteLine("Nombre saisi : " + nbSaisi);
             Console.WriteLine("Fin du programme");
 
             Console.ReadKey();
